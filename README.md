@@ -15,8 +15,8 @@
 # Function to generate a question
     def generate_question(question_type):
         # Define prompts for different types of questions
-        basic_prompt = "Create a simple, common question that a new Uber driver might ask about their job."
-        edge_case_prompt = "Create a complex or safety-related question that a new Uber driver might ask."
+        basic_prompt = "Create a simple, common question that a new Ridesharing company driver might ask about their job."
+        edge_case_prompt = "Create a complex or safety-related question that a new Ridesharing company driver might ask."
     
     prompt = basic_prompt if question_type == 'basic' else edge_case_prompt
     
@@ -39,7 +39,7 @@ def handle_conversation(question):
         response = openai.ChatCompletion.create(
             model="gpt-4-1106-preview",
             messages=[
-                {"role": "system", "content": "You are a helpful and knowledgeable FAQ bot for new Uber drivers."},
+                {"role": "system", "content": "You are a helpful and knowledgeable FAQ bot for new Ridesharing company drivers."},
                 {"role": "user", "content": question}
             ],
             max_tokens=150  # Set max tokens to limit response length

@@ -43,7 +43,6 @@ def handle_conversation(question):
             max_tokens=150  # Set max tokens to limit response length
         )
         
-        # Extract the bot's response
         if response['choices'][0]['message']['role'] == "assistant":
             answer = response['choices'][0]['message']['content']
             # Truncate the response to approximately 100 words if necessary
@@ -58,15 +57,15 @@ def handle_conversation(question):
         return question, "Error fetching response."
 
 # Streamlit UI setup
-st.markdown("<h1 style='text-align: center; color: white;'>Jeremy's Multi-Bot Testing Example [GPT-4 Turbo] ☄️🤖📊</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: grey;'>Customer Support Simulation</h3>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: white;'>Jeremy's Multi-Bot Testing Example [GPT-4 Turbo] ☄️🤖📊</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: grey;'>Customer Support Simulation</h3>", unsafe_allow_html=True)
 
 # Session state to store conversation
-if 'conversation_history' not in st.session_state:
+    if 'conversation_history' not in st.session_state:
     st.session_state['conversation_history'] = []
 
 # Button to initiate conversation
-if st.button('Start Simulation'):
+    if st.button('Start Simulation'):
     st.session_state['conversation_history'] = []  # Reset the conversation history
     with st.spinner('Generating conversation...'):
         for _ in range(5):  # Loop for 10 questions
@@ -78,7 +77,7 @@ if st.button('Start Simulation'):
             st.text(f"Support Bot: {response}")
 
 # Display a download button for the conversation history
-if st.session_state['conversation_history']:
+    if st.session_state['conversation_history']:
     df_conversation = pd.DataFrame(st.session_state['conversation_history'])
     csv = df_conversation.to_csv(index=False).encode('utf-8')
     st.download_button(

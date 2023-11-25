@@ -1,20 +1,22 @@
-# multibot_testing
+# multibot_testing 
+
+# Setup Python notebook
 
 
-import streamlit as st
-import openai
-import pandas as pd
-import random
-import json
-
-openai.api_key = 'API KEY GOES HERE' 
+    import streamlit as st
+    import openai
+    import pandas as pd
+    import random
+    import json
+    
+    openai.api_key = 'API KEY GOES HERE' 
 
 
 # Function to generate a question
-def generate_question(question_type):
-    # Define prompts for different types of questions
-    basic_prompt = "Create a simple, common question that a new Uber driver might ask about their job."
-    edge_case_prompt = "Create a complex or safety-related question that a new Uber driver might ask."
+    def generate_question(question_type):
+        # Define prompts for different types of questions
+        basic_prompt = "Create a simple, common question that a new Uber driver might ask about their job."
+        edge_case_prompt = "Create a complex or safety-related question that a new Uber driver might ask."
     
     prompt = basic_prompt if question_type == 'basic' else edge_case_prompt
     

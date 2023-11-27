@@ -34,16 +34,16 @@
         return "Error generating question."
 
 # Function to handle conversation
-def handle_conversation(question):
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4-1106-preview",
-            messages=[
-                {"role": "system", "content": "You are a helpful and knowledgeable FAQ bot for new Ridesharing company drivers."},
-                {"role": "user", "content": question}
-            ],
-            max_tokens=150  # Set max tokens to limit response length
-        )
+    def handle_conversation(question):
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-4-1106-preview",
+                messages=[
+                    {"role": "system", "content": "You are a helpful and knowledgeable FAQ bot for new Ridesharing company drivers."},
+                    {"role": "user", "content": question}
+                ],
+                max_tokens=150  # Set max tokens to limit response length
+            )
         
         if response['choices'][0]['message']['role'] == "assistant":
             answer = response['choices'][0]['message']['content']
